@@ -14,9 +14,19 @@
             <id>Java EE 7</id> 
             <url>https://maven.java.net/content/groups/promoted/</url>  
         </repository> 
+        <repository>
+            <id>EclipseLink</id>
+            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+        </repository>
     </repositories>
     
     <dependencies>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>2.5.0-M7</version>
+            <type>jar</type>
+        </dependency>
         <dependency>  
             <groupId>javax</groupId>  
             <artifactId>javaee-api</artifactId>  
