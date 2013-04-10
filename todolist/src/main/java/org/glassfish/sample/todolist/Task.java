@@ -4,32 +4,45 @@
  */
 package org.glassfish.sample.todolist;
 
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.stream.JsonParser;
+
 /**
  *
  * @author arungup
  */
 public class Task {
-    User user;
+//    User user;
     int id;
     String title;
-    String detail;
+    
+    public Task(String string) {
+        JsonParser parser = Json.createParser(new StringReader(string));
+        parser.next();
+        parser.next();
+        parser.next();
+        id = parser.getInt();
+        parser.next();
+        parser.next();
+        title = parser.getString();
+    }
 
-    public Task(User user, int id, String title, String detail) {
-        this.user = user;
+    public Task(int id, String title) {
+//        this.user = user;
         this.id = id;
         this.title = title;
-        this.detail = detail;
     }
     
     
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public int getId() {
         return id;
@@ -46,15 +59,9 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
     
-    
+    public String toString() {
+        return "{ \"id\": " + id + ", \"title\": " + title + "}";
+    }
     
 }

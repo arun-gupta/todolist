@@ -18,7 +18,7 @@ import org.glassfish.sample.todolist.TaskResource;
 public class ApplicationConfig extends Application {
     @Override
      public Set<Class<?>> getClasses() {
-         HashSet<Class<?>> set = new HashSet<Class<?>>(2);
+         HashSet<Class<?>> set = new HashSet<>(2);
          set.add(MOXyJsonProvider.class);
          set.add(TaskResource.class);
          return set;

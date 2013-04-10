@@ -4,6 +4,8 @@
  */
 package org.glassfish.sample.todolist;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -22,6 +24,9 @@ import javax.ws.rs.core.MediaType;
 @Path("task")
 public class TaskResource {
 
+//    @PersistenceContext
+//    EntityManager em;
+    
     @Context
     private UriInfo context;
 
@@ -47,7 +52,11 @@ public class TaskResource {
     public String postJson(String payload) {
         System.out.println(payload);
         
-        return payload;
+        Task task = new Task(payload);
+        
+//        em.persist(task);
+        
+        return task.toString();
     }
 
     /**
